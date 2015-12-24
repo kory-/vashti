@@ -1,0 +1,14 @@
+web:
+  image: nginx
+  ports:
+    - "8080:80"
+  volumes:
+    - ./:/var/app
+    - ./nginx-site.conf:/etc/nginx/conf.d/nginx-site.conf
+  links:
+    - php
+
+php:
+  image: php:7.0-fpm
+  volumes:
+   - ./:/var/app
