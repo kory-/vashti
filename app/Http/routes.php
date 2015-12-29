@@ -16,11 +16,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/sayhello', function() {
-    $person = Request::get('person', 'No one!');
-    return "Good morning to $person!";
-});
-
+Route::get('/sayhello', 'HomeController@sayHello');
+Route::get('/dispatch_job', 'HomeController@dispatchJob');
 /*
 |--------------------------------------------------------------------------
 | Application Routes
