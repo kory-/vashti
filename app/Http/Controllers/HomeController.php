@@ -17,4 +17,8 @@ class HomeController extends Controller {
         Log::info("Hello world, going to dispatch job from the controller!");
         $this->dispatch(new LogSomethingJob);
     }
+
+    public function seeHostname() {
+        return gethostname();
+    }
 }

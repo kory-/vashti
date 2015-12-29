@@ -18,6 +18,7 @@ Route::get('/', function () {
 
 Route::get('/sayhello', 'HomeController@sayHello');
 Route::get('/dispatch_job', 'HomeController@dispatchJob');
+Route::get('/hostname', 'HomeController@seeHostname');
 /*
 |--------------------------------------------------------------------------
 | Application Routes
