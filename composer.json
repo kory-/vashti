@@ -34,10 +34,17 @@
         ],
         "post-create-project-cmd": [
             "php artisan key:generate"
+        ],
+        "post-install-cmd": [
+        ],
+        "pre-update-cmd": [
+            "php artisan clear-compiled"
+        ],
+        "post-update-cmd": [
+            "php artisan optimize"
         ]
     },
     "config": {
-        "preferred-install": "dist",
-        "vendor-dir": "D:/local/Temp/composer/vendor"
+        "preferred-install": "dist"
     }
 }
