@@ -4,9 +4,6 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-    "config": {
-        "vendor-dir": "D:/Temp/vendor"
-    },
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*"
@@ -40,6 +37,7 @@
         ]
     },
     "config": {
-        "preferred-install": "dist"
+        "preferred-install": "dist",
+        "vendor-dir": "D:\local\Temp\composer\vendor"
     }
 }
