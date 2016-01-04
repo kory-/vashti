@@ -16,7 +16,7 @@ return [
     */
 
     'paths' => [
-        'd:/home/site/resources/views',
+        realpath(base_path('resources/views')),
     ],
 
     /*
@@ -30,5 +30,5 @@ return [
     |
     */
 
-    'compiled' => 'd:/home/site/storage/framework/views',
+    'compiled' => realpath(storage_path('framework/views')),
 ];
