@@ -15,8 +15,6 @@ $app = new Illuminate\Foundation\Application(
     realpath(__DIR__.'/../')
 );
 
-$app->useStoragePath(getenv('TEMP'));
-
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces
