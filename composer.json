@@ -37,7 +37,8 @@
         ],
         "post-install-cmd": [
             "php artisan clear-compiled",
-            "composer dump-autoload -o"
+            "composer dump-autoload -o",
+            "php artisan optimize:classes"
         ],
         "pre-update-cmd": [
             "php artisan clear-compiled"
