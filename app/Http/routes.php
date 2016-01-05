@@ -16,9 +16,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/sayhello', 'HomeController@sayHello');
 Route::get('/dispatch_job', 'HomeController@dispatchJob');
 Route::get('/hostname', 'HomeController@seeHostname');
+
+Route::get('/tasks', ['uses' => 'HomeController@tasks', 'as' => 'tasks']);
+Route::post('/tasks/new', ['uses' => 'HomeController@addTask', 'as' => 'add_new_task']);
+Route::post('/tasks/{id}/complete', ['uses' => 'HomeController@markComplete', 'as' => 'mark_task_completed']);
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes

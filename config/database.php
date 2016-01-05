@@ -1,4 +1,5 @@
 <?php
+$dbConnectionURL = parse_url(getenv('SQLSRV_CONNECTION_URL') ?: 'sqlite://user:pass@example.com/db');
 
 return [
 
@@ -26,7 +27,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => $dbConnectionURL['scheme'],
 
     /*
     |--------------------------------------------------------------------------
@@ -77,10 +78,10 @@ return [
 
         'sqlsrv' => [
             'driver'   => 'sqlsrv',
-            'host'     => env('DB_HOST', 'localhost'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host'     => $dbConnectionURL['host'],
+            'database' => substr($dbConnectionURL["path"], 1),
+            'username' => $dbConnectionURL['user'],
+            'password' => $dbConnectionURL['pass'],
             'charset'  => 'utf8',
             'prefix'   => '',
         ],

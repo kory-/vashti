@@ -4,13 +4,30 @@ namespace App\Http\Controllers;
 
 use Log;
 use App\Http\Controllers\Controller;
+use App\Task;
 use App\Jobs\LogSomethingJob;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller {
-    public function sayHello(Request $req) {
-        $person = $req->get('person', 'No one!');
-        return "Good morning to $person!";
+    public function tasks() {
+        $tasks = Task::all();
+        return view('tasks', compact('tasks'));
+    }
+
+    public function addTask(Request $req) {
+        $task = new Task;
+        $task->task_content = $req->get('task_content');
+        $task->save();
+
+        return redirect()->route('tasks');
+    }
+
+    public function markComplete($taskId) {
+        $task = Task::find($taskId);
+        $task->completed = true;
+        $task->save();
+
+        return redirect()->route('tasks');
     }
 
     public function dispatchJob() {
