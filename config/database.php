@@ -118,6 +118,7 @@ return [
         'cluster' => false,
 
         'default' => [
+            'scheme'   => 'ssl',
             'host'     => $redisConnectionURL['host'],
             'password' => $redisConnectionURL['pass'],
             'port'     => $redisConnectionURL['port'],
