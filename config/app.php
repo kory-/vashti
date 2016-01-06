@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => 'http://jpmtestphp.azurewebsites.net/laravel',
 
     /*
     |--------------------------------------------------------------------------
