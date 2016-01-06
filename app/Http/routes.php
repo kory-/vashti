@@ -11,12 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    Log::info("Hello World!!");
-    return view('welcome');
-});
-
-Route::get('/dispatch_job', 'HomeController@dispatchJob');
+Route::get('/', 'HomeController@dispatchJob');
 Route::get('/hostname', 'HomeController@seeHostname');
 
 Route::get('/tasks', ['uses' => 'HomeController@tasks', 'as' => 'tasks']);

@@ -1,5 +1,6 @@
 <?php
-$dbConnectionURL = parse_url(getenv('SQLSRV_CONNECTION_URL') ?: 'sqlite://user:pass@example.com/db');
+$dbConnectionURL = parse_url(getenv('DB_CONNECTION_URL') ?: 'sqlite://user:pass@example.com/db');
+$redisConnectionURL = parse_url(getenv('REDIS_CONNECTION_URL') ?: 'redis:://redis:pass@example.com:6380');
 
 return [
 
@@ -117,9 +118,9 @@ return [
         'cluster' => false,
 
         'default' => [
-            'host'     => env('REDIS_HOST', 'localhost'),
-            'password' => env('REDIS_PASSWORD', null),
-            'port'     => env('REDIS_PORT', 6379),
+            'host'     => $redisConnectionURL['host'],
+            'password' => $redisConnectionURL['pass'],
+            'port'     => $redisConnectionURL['port'],
             'database' => 0,
         ],
 
